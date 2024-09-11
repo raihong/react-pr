@@ -72,6 +72,12 @@ function App() {
                   }}>👍</span> {따봉[i]} 
                 </h4>
                 <p>2월 17일 발행</p>
+                <button onClick={()=>{
+                  let copy=[...글제목];
+                  //copy 여기서 원하는 자료 삭제
+                  copy.splice(i, 1);
+                  글제목변경(copy)
+                }}>삭제</button>
               </div>
             )
           })
@@ -80,7 +86,12 @@ function App() {
         <input onChange={(e)=>{ 입력값변경(e.target.value); 
           console.log(입력값)
           }}/>
-        <button></button>
+        <button onClick={()=>{
+          let copy =[...글제목];
+          // copy 맨처음에 유저가 입력 한글 추가
+          copy.unshift(입력값);
+          글제목변경(copy)
+        }}>글발행</button>
 
         {/* 컴포넌트 부르기 */}
         {
